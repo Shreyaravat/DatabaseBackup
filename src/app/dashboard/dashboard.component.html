@@ -1,0 +1,68 @@
+<!-- <div class="container">
+    <h2>Backup History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th> Created Time </th>
+                <th> Backup Path (C:) </th>
+                <th> Backup Path (D:) </th>
+                <th> Status </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let backup of backupHistory"> 
+                <td> {{backup.createdTime}} </td>
+                <td>{{ backup.backupPathC }}</td>
+                <td>{{ backup.backupPathD }}</td>
+                <td>{{ backup.status }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+
+<div class="container">
+    <h2>Backup History</h2>
+
+    <div>
+        <h3>Remote Database Backup</h3>
+        <label>IP Address: <input type="text" [(ngModel)]="remoteDb.ip" /></label>
+        <label>Port: <input type="text" [(ngModel)]="remoteDb.port" /></label>
+        <label>DB Name: <input type="text" [(ngModel)]="remoteDb.dbName" /></label>
+        <label>Username: <input type="text" [(ngModel)]="remoteDb.username" /></label>
+        <label>Password: <input type="password" [(ngModel)]="remoteDb.password" /></label>
+        <label>Backup Time: <input type="datetime-local" [(ngModel)]="remoteDb.backupTime" /></label>
+
+        <button (click)="scheduleBackup()">Schedule Backup</button>
+
+        <!-- <button (click)="backupRemoteDatabase()">Backup Remote DB</button> -->
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th> Created Time </th>
+                <th> Backup Path (C:) </th>
+                <th> Backup Path (D:) </th>
+                <!-- <th>DB IP</th>
+                <th>DB Name</th>
+                <th>Username</th> -->
+                <th> Status </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let backup of backupHistory"> 
+                <td> {{backup.createdTime}} </td>
+                <td>{{ backup.backupPathC }}</td>
+                <td>{{ backup.backupPathD }}</td>
+                <!-- <td>{{ backup.dbIp }}</td> 
+                <td>{{ backup.dbName }}</td>
+                <td>{{ backup.dbUsername }}</td> -->
+                <td>{{ backup.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
